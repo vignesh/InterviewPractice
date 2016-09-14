@@ -8,10 +8,8 @@ class LinkedList {
 		int data;
 	};
 
-private:
-	Node *head;	
-
 public:
+	Node *head;	
 	LinkedList() {head = NULL;}
 	//~LinkedList();
 
@@ -22,7 +20,21 @@ public:
 		head = newNode;
 	}
 
-	void PrintLinkedList () {
+	void addLastNode (Node *head, int value) {
+		int storeValue = value;
+		if (head != NULL) {
+			Node *temp = head->next;
+			addLastNode(temp, storeValue);
+		}
+		else {
+			Node *newNode = new Node();
+			head->next = newNode;
+			newNode->data = value;
+			newNode->next = NULL;
+		}
+	}
+
+	void inOrderPrint () {
 		Node *temp = head;
 		while (temp != NULL) {
 			cout << temp->data << endl;
@@ -37,6 +49,13 @@ public:
 		delete temp;
 	}
 
+	void reversePrint (Node *head) {
+		if (head != NULL) {
+			Node *temp = head->next;
+			reversePrint(temp);
+			cout << head->data << endl;
+		}
+	}
 };
 
 int main() {
@@ -46,7 +65,8 @@ int main() {
     list.addFrontNode(10);
     list.addFrontNode(15);
     list.popFirstValue();
-    list.PrintLinkedList();
+    list.inOrderPrint();
+    list.reversePrint(Node *head);
 
     return 0;
 }

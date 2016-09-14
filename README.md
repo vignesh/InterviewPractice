@@ -1,2 +1,2 @@
 # InterviewPractice
-Practice basic data structures and algorithms. 
+Practice for basic data structures and algorithms.
