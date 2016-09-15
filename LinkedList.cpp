@@ -22,16 +22,6 @@ public:
 
 	void addLastNode (Node *head, int value) {
 		int storeValue = value;
-		/*Node *temp = head;
-		while (temp != NULL) {
-			temp = temp->next;
-			cout << temp->next;
-		}
-		Node *newNode = new Node();
-		newNode->data = value;
-		newNode->next = NULL;*/
-		//temp->next = newNode;
-
 		if (head != NULL) {
 			cout << head << endl;
 			Node *temp = head->next;
@@ -59,8 +49,10 @@ public:
 		//	Node *temp = head->next;
 		//	findMiddleNode(temp);
 		//}
-		Node *slow = head;
-		Node *fast = head;
+		Node *slow = new Node();
+		slow = head;
+		Node *fast = new Node();
+		fast = head;
 		while (fast != NULL) {
 			fast = fast->next->next;
 			slow = slow->next;
@@ -70,7 +62,7 @@ public:
 
 	bool cycleCheck (Node *head) {
 		if (head == NULL) {
-			cout << "bye" << endl;
+			//cout << "here" << endl;
 			return false;
 
 		}
@@ -83,7 +75,7 @@ public:
 				return true;
 			}
 		}
-		cout << "hi" << endl;
+		//cout << "here" << endl;
 		return false;
 	};
 
