@@ -28,7 +28,7 @@ public:
 		}
 	}
 
-	void addLastNode (Node *temp2, Node *head, int value) {
+	/*void addLastNode (Node *temp2, Node *head, int value) {
 		int storeValue = value;
 		if (head != NULL) {
 			cout << head << endl;
@@ -42,6 +42,17 @@ public:
 			newNode->next = NULL;
 			temp2->next = newNode; 
 		}
+	}*/
+
+	void addLastNode (int value) {
+		Node *temp = head;
+		while (temp != NULL) {
+			temp = temp->next; 
+		}
+		Node *newNode = new Node();
+		newNode->data = value;
+		newNode->next = NULL;
+		temp->next = newNode; 
 	}
 
 	/*void addNthNode (Node *head, int value, int position) {
@@ -117,10 +128,11 @@ int main() {
     list.addFrontNode(4);
     list.addFrontNode(5);
     list.addFrontNode(6);
-    //list.popFirstValue();
+    list.popFirstValue();
     //list.cycleCheck();
     list.findMiddleNode(list.head);
     //list.addLastNode(list.head, list.head, 7);
+    list.addLastNode(7);
     list.inOrderPrint(list.head);
     //list.reversePrint(list.head);
 
