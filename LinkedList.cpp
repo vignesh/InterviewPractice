@@ -58,7 +58,7 @@ public:
 			}
 			slow = slow->next;
 		}
-		cout << slow->data << endl;
+		cout << "Middle Node " << slow->data << endl;
 	};
 
 	void cycleCheck () {
@@ -74,7 +74,15 @@ public:
 		cout << "No Cycle" << endl;
 	};
 
-	void reverseList();
+	Node* reverseList(Node *head) {
+		if (head == NULL || head->next == NULL) {
+			return head;
+		}
+		Node *temp = reverseList(head->next);
+		head->next->next = head;
+		head->next = NULL;
+		return temp;
+	};
 
 	void inOrderPrint (Node *head) {
 		if (head != NULL) {
@@ -115,6 +123,7 @@ int main() {
     list.findMiddleNode(list.head);
     list.addLastNode(7);
     list.inOrderPrint(list.head);
+    list.reverseList(list.head);
     list.reversePrint(list.head);
 
     return 0;
