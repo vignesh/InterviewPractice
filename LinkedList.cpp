@@ -28,30 +28,14 @@ public:
 		}
 	}
 
-	/*void addLastNode (Node *temp2, Node *head, int value) {
-		int storeValue = value;
-		if (head != NULL) {
-			cout << head << endl;
-			Node *temp = head->next;
-			addLastNode(temp, head, storeValue);
-		}
-		if (temp2 == NULL) {
-			cout << "here" << endl;
-			Node *newNode = new Node();
-			newNode->data = value;
-			newNode->next = NULL;
-			temp2->next = newNode; 
-		}
-	}*/
-
 	void addLastNode (int value) {
 		Node *temp = head;
-		while (temp != NULL) {
-			temp = temp->next; 
-		}
 		Node *newNode = new Node();
 		newNode->data = value;
 		newNode->next = NULL;
+		while (temp->next != NULL) {
+			temp = temp->next; 
+		}
 		temp->next = newNode; 
 	}
 
@@ -74,23 +58,21 @@ public:
 			}
 			slow = slow->next;
 		}
-		cout << "Middle Node " << slow->data << endl;
+		cout << slow->data << endl;
 	};
 
-	/*bool cycleCheck () {
-		cout << "here" << endl;
+	void cycleCheck () {
 		Node *slow = head;
 		Node *fast = head;
-		while (slow != NULL && fast != NULL) {
+		while (slow->next != NULL && fast->next != NULL) {
 			slow = slow->next;
 			fast = fast->next->next;
-			if (slow == head) {
-				return true;
+			if (slow == fast) {
+				cout << "Cycle" << endl;
 			}
 		}
-		//cout << "here" << endl;
-		return false;
-	};*/
+		cout << "No Cycle" << endl;
+	};
 
 	void reverseList();
 
@@ -129,12 +111,11 @@ int main() {
     list.addFrontNode(5);
     list.addFrontNode(6);
     list.popFirstValue();
-    //list.cycleCheck();
+    list.cycleCheck();
     list.findMiddleNode(list.head);
-    //list.addLastNode(list.head, list.head, 7);
     list.addLastNode(7);
     list.inOrderPrint(list.head);
-    //list.reversePrint(list.head);
+    list.reversePrint(list.head);
 
     return 0;
 }
