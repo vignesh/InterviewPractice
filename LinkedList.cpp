@@ -14,24 +14,33 @@ public:
 	//~LinkedList();
 
 	void addFrontNode (int value) {
-		Node *newNode = new Node();
-		newNode->data = value;
-		newNode->next = head;
-		head = newNode;
-	}
-
-	void addLastNode (Node *head, int value) {
-		int storeValue = value;
-		if (head != NULL) {
-			cout << head << endl;
-			Node *temp = head->next;
-			addLastNode(temp, storeValue);
-		}
 		if (head == NULL) {
 			Node *newNode = new Node();
 			newNode->data = value;
 			newNode->next = NULL;
-			head->next = newNode; 
+			head = newNode;
+		}
+		else {
+			Node *newNode = new Node();
+			newNode->data = value;
+			newNode->next = head;
+			head = newNode;
+		}
+	}
+
+	void addLastNode (Node *temp2, Node *head, int value) {
+		int storeValue = value;
+		if (head != NULL) {
+			cout << head << endl;
+			Node *temp = head->next;
+			addLastNode(temp, head, storeValue);
+		}
+		if (temp2 == NULL) {
+			cout << "here" << endl;
+			Node *newNode = new Node();
+			newNode->data = value;
+			newNode->next = NULL;
+			temp2->next = newNode; 
 		}
 	}
 
@@ -45,27 +54,20 @@ public:
 	}*/
 
 	void findMiddleNode (Node *head) {
-		//if (*head != NULL) {
-		//	Node *temp = head->next;
-		//	findMiddleNode(temp);
-		//}
-		Node *slow = new Node();
-		slow = head;
-		Node *fast = new Node();
-		fast = head;
-		while (fast != NULL) {
-			fast = fast->next->next;
+		Node *slow = head;
+		Node *fast = head;
+		while (fast->next != NULL) {
+			fast = fast->next;
+			if(fast->next != NULL) {
+				fast = fast->next;
+			}
 			slow = slow->next;
 		}
-		cout << slow->data << endl;
+		cout << "Middle Node " << slow->data << endl;
 	};
 
-	bool cycleCheck (Node *head) {
-		if (head == NULL) {
-			//cout << "here" << endl;
-			return false;
-
-		}
+	/*bool cycleCheck () {
+		cout << "here" << endl;
 		Node *slow = head;
 		Node *fast = head;
 		while (slow != NULL && fast != NULL) {
@@ -77,7 +79,7 @@ public:
 		}
 		//cout << "here" << endl;
 		return false;
-	};
+	};*/
 
 	void reverseList();
 
@@ -107,7 +109,7 @@ public:
 };
 
 int main() {
-    LinkedList list;
+	LinkedList list;
 
     list.addFrontNode(1);
     list.addFrontNode(2);
@@ -115,10 +117,10 @@ int main() {
     list.addFrontNode(4);
     list.addFrontNode(5);
     list.addFrontNode(6);
-    list.popFirstValue();
-    list.cycleCheck(list.head);
-    //list.findMiddleNode(list.head);
-    //list.addLastNode(list.head, 7);
+    //list.popFirstValue();
+    //list.cycleCheck();
+    list.findMiddleNode(list.head);
+    //list.addLastNode(list.head, list.head, 7);
     list.inOrderPrint(list.head);
     //list.reversePrint(list.head);
 
