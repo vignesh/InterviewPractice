@@ -101,7 +101,7 @@ bool fullBinaryTree(Node *root) {
 	return false;
 }
 
-int bottomView(Node *root) {
+int bottomView(Node *root) { 
 	if (root == NULL) {
 		return 0;
 	}
@@ -115,9 +115,18 @@ int bottomView(Node *root) {
 		bottomView(root->left);
 	}
 	return 0;
-}
+}//wrong, need to fix this! 
 
 int topView() {
+	if (root->left) {
+        root->left->right = NULL;
+        topView(root->left);
+    }
+    cout << root->data << " ";
+    if (root->right) {
+        root->right->left = NULL;
+        topView(root->right);
+    }
 
 }
 
