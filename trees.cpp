@@ -34,6 +34,7 @@ int postOrder(Node* root) {
 	postOrder(root->left);
 	postOrder(root->right);
 	cout << root->data <<  " ";
+	return 0;
 }
 
 int inOrder (Node *root) {
@@ -43,6 +44,21 @@ int inOrder (Node *root) {
 	inOrder(root->left);
 	cout << root->data << " ";
 	inOrder(root->right);
+	return 0;
+}
+
+Node* insertBST(Node *root, int value) {
+	if (root == NULL) {
+		newNode(value);
+		return root;
+	}
+	if (root->data < value) {
+		root->right = insertBST(root->right, value);
+	}
+	if(root->data > value) {
+		root->left = insertBST(root->left, value);
+	}
+	return root;
 }
 
 int treeDepth(Node *root) {
@@ -153,10 +169,10 @@ int main()
     root->right       = newNode(3);
     root->left->left  = newNode(4);
     root->left->right = newNode(5);
-    cout << treeDepth(root) << endl;
-    cout << fullBinaryTree(root) << endl;
-    postOrder(root);
-    preOrder(root);
+    //cout << treeDepth(root) << endl;
+    //cout << fullBinaryTree(root) << endl;
+    //postOrder(root);
+    //preOrder(root);
     inOrder(root);
     return 0;
 }
