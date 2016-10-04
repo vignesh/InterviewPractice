@@ -47,6 +47,10 @@ int inOrder (Node *root) {
 	return 0;
 }
 
+int levelOrder (Node *root) {
+	
+}
+
 Node* insertBST(Node *root, int value) {
 	if (root == NULL) {
 		newNode(value);
@@ -127,7 +131,6 @@ int topView() {
         root->right->left = NULL;
         topView(root->right);
     }
-
 }
 
 int pathSum() {
