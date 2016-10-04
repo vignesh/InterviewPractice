@@ -5,11 +5,11 @@ using namespace std;
 class Stack {
 
 private: 
+	int *p;
 	int head;
 	int length;
 
 public:
-		int *p;
 	Stack(int size);
 	~Stack();
 	int pop();
