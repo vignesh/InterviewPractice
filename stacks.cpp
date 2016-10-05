@@ -13,7 +13,7 @@ public:
 	Stack(int size);
 	~Stack();
 	int pop();
-	void push(int data);
+	int push(int data);
 	void printStack();
 };
 
@@ -27,12 +27,20 @@ Stack::~Stack() {
 	delete [] p;
 }
 
-void Stack::push(int data) {
+int Stack::push(int data) {
+	if (head == length) {
+		cout << "Full Stack" << endl
+		return 0;
+	}
 	head++;
 	p[head] = data;
 }
 
 int Stack::pop() {
+	if (head == 0) {
+		cout << "Empty Stack" << endl;
+		return 0;
+	}
 	int value;
 	value = p[head];
 	head--;
