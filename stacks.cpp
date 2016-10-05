@@ -27,16 +27,16 @@ Stack::~Stack() {
 	delete [] p;
 }
 
+void Stack::push(int data) {
+	head++;
+	p[head] = data;
+}
+
 int Stack::pop() {
 	int value;
 	value = p[head];
 	head--;
 	return value;
-}
-
-void Stack::push(int data) {
-	head++;
-	p[head] = data;
 }
 
 void Stack::printStack() {
@@ -46,17 +46,12 @@ void Stack::printStack() {
 }
 
 int main() {
-	Stack s1(4);
+	Stack s1(5);
 	s1.push(1);
 	s1.push(2);
 	s1.push(3);
 	s1.push(4);
 	s1.push(5);
-	s1.push(6);
-	s1.push(7);
-	s1.push(8);
-	s1.push(9);
-	s1.push(10);
 	s1.pop();
 	s1.printStack();
 }
