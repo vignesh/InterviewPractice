@@ -1,4 +1,5 @@
 #include<iostream>
+#include<queue>
 using namespace std;
  
 struct Node
@@ -48,7 +49,21 @@ int inOrder (Node *root) {
 }
 
 int levelOrder (Node *root) {
-	
+	queue<Node *> q;
+    if (root != NULL) {
+        q.push(root);
+    }
+    while (!q.empty()) {
+        Node *temp =q.front();
+        cout << temp->data << " ";
+        if(temp->left != NULL) {
+            q.push(temp->left);
+        }
+        if(temp->right != NULL) {
+            q.push(temp->right);
+        }
+        q.pop();
+    }
 }
 
 Node* insertBST(Node *root, int value) {
@@ -121,7 +136,7 @@ int bottomView(Node *root) {
 	return 0;
 }//wrong, need to fix this! 
 
-int topView() {
+int topView(Node *root) {
 	if (root->left) {
         root->left->right = NULL;
         topView(root->left);
@@ -181,10 +196,11 @@ int main()
     root->right       = newNode(3);
     root->left->left  = newNode(4);
     root->left->right = newNode(5);
+    levelOrder(root);
     //cout << treeDepth(root) << endl;
     //cout << fullBinaryTree(root) << endl;
     //postOrder(root);
     //preOrder(root);
-    inOrder(root);
+    //inOrder(root);
     return 0;
 }
