@@ -7,6 +7,7 @@ int stringToInteger(char input) {
 	int i = 0;
 	if (input[i] == "-") {
 		Negative = true;
+		int i = 1;
 	}
 
 }

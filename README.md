@@ -1,4 +1,4 @@
 # InterviewPractice
 Practice for basic data structures and algorithms.
 
-Used HackerRank and Geeksforgeeks as reference. 
+Used "Program Interviews Exposed", HackerRank and Geeksforgeeks for reference. 
