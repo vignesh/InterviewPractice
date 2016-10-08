@@ -120,7 +120,7 @@ bool fullBinaryTree(Node *root) {
 	return false;
 }
 
-int bottomView(Node *root) { 
+/*int bottomView(Node *root) { 
 	if (root == NULL) {
 		return 0;
 	}
@@ -134,7 +134,7 @@ int bottomView(Node *root) {
 		bottomView(root->left);
 	}
 	return 0;
-}//wrong, need to fix this! 
+}//wrong, need to fix this! */
 
 int topView(Node *root) {
 	if (root->left) {
@@ -148,10 +148,6 @@ int topView(Node *root) {
     }
 }
 
-int pathSum() {
-
-}
-
 Node* lowestCommonAncestorBST(Node *root, int value1, int value2) {
 	if (root == NULL) {
 		return 0;
@@ -163,6 +159,18 @@ Node* lowestCommonAncestorBST(Node *root, int value1, int value2) {
 		root = lowestCommonAncestorBST(root->left, value1, value2);
 	}
 	return root;
+}
+
+int pathSum() {
+
+}
+
+int printLeastToGreatest() {
+
+}
+
+int closestAncestor() {
+	
 }
 
 int deleteAllLeaves(){

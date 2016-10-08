@@ -53,6 +53,7 @@ void Stack::printStack() {
 	}
 }
 
+
 int main() {
 	Stack s1(5);
 	s1.push(1);
