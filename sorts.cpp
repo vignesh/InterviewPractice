@@ -23,12 +23,25 @@ int selectionSort(int data[], int len) {
 		}
 	}
 	return *data;
-}//O(n^2)
+}//O(n^2), in place algorithm, unstable
+
+int quickSort(int data[], int len) {
+	int pivotIndex = len/2;
+	int pivotValue = data[pivotIndex];
+	int leftCounter = 0;
+	for (int i = 0; i < len; i++) {
+		if (data[i] < pivotValue) {
+			leftCounter++;
+		}
+	}
+	//int [] leftArray = new int[leftCounter];
+	//int [] rightArray = new int[len-1-leftCounter];
+}//O(nlogn), unstable
 
 
 int main () {
 	int data [5] = {10, 20, 30, 5, 3}; 
-	int val =selectionSort(bar, 5);	
+	int val =selectionSort(data, 5);	
 	cout << val;
 }
 

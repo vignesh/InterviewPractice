@@ -1,6 +1,10 @@
 #include <iostream>
 using namespace std;
 
+int printKClosest(int data[], int len, int center, int near) {
+	
+}
+
 int main() {
 
 }
