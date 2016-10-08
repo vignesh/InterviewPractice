@@ -3,6 +3,20 @@
 #include <map>
 using namespace std;
 
+int reverseString(string a) {
+	int len = a.length();
+	char copy[len]; 
+	for (int i = 0; i < len; i++) {
+		copy[i] = a[len-i];
+		cout << copy[i];
+	}
+	return 0;
+}
+
+string reverseWords(string sentence) {
+	return 0;
+}
+
 int stringToInteger(char *input) {
 	int sign = 1;
 	int i = 0;
@@ -70,6 +84,7 @@ string sortInfiniteStream(string a) {
 int main() {
 	//int value = stringToInteger("-100232");
 	//cout << value << endl;
-	int isoValue = isomorphicStrings("abab", "xyxy");
-	cout << isoValue << endl;
+	//int isoValue = isomorphicStrings("abab", "xyxy");
+	//cout << isoValue << endl;
+	reverseString("abcdefg");
 }
