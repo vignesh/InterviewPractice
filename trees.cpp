@@ -169,10 +169,6 @@ int printLeastToGreatest() {
 
 }
 
-int closestAncestor() {
-	
-}
-
 int deleteAllLeaves(){
 
 }
@@ -185,11 +181,7 @@ int flattenBinaryTree() {
 
 }
 
-int constructFromPreOrder() {
-
-}
-
-int constructFromLevelOrder() {
+int constructFromArray() {
 
 }
 

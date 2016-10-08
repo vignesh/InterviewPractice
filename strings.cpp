@@ -40,12 +40,9 @@ int stringToInteger(char *input) {
 	if (0 > input) {
 		sign = -1;
 	}
-
 }*/
 
 bool isomorphicStrings(string a, string b) {
-    int i = 0;
-    int j = 0;
     int lenA = a.length();
     int lenB = b.length();
     if (a == b) {
@@ -105,7 +102,7 @@ bool isomorphicStrings(string a, string b) {
 int main() {
 	//int value = stringToInteger("-100232");
 	//cout << value << endl;
-	//int isoValue = isomorphicStrings("abab", "xyxy");
-	//cout << isoValue << endl;
-	reverseString("abcdefg");
+	int isoValue = isomorphicStrings("abab", "xyxy");
+	cout << isoValue << endl;
+	//reverseString("abcdefg");
 }
