@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 class Queue {
@@ -65,4 +64,3 @@ int main() {
 	q1.dequeue();
 	q1.printQueue();
 }
-

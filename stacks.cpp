@@ -29,11 +29,12 @@ Stack::~Stack() {
 
 int Stack::push(int data) {
 	if (head == length) {
-		cout << "Full Stack" << endl
+		cout << "Full Stack" << endl;
 		return 0;
 	}
 	head++;
 	p[head] = data;
+	return 0;
 }
 
 int Stack::pop() {

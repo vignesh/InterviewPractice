@@ -27,7 +27,7 @@ int primeFactors(int number) {
 	return 0;
 } 
 
-int nthLargestNumber () {
+int kthLargestNumber () {
 	return 0;
 }
 
@@ -35,7 +35,7 @@ int sumInArray (int sum) {
 	return 0;
 }//are two numbers in an array = to sum
 
-int findMedian () {
+int findMedian (int arr[], int arr2[], int n) {
 
 }//find median given two arrays
 
