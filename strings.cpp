@@ -26,7 +26,6 @@ int stringToInteger(char *input) {
 		i = 1;
 	}
 	while (input[i] != '\0') {
-		//cout << i << " " << input[i] << " " << sum << endl;
 		sum = sum * 10 + input[i] - '0';
 		i++;
 	}
@@ -73,13 +72,35 @@ bool isomorphicStrings(string a, string b) {
     return true;
 }
 
-string longestPalindrome(string a) {
-	return 0;
-}
+/*string longestPalindrome(string word) {
+	int len = word.length();
+	int max = 0;
+	int low = 0;
+	int high = 0;
+	for (int i = 1; i < len; ++i) {
+		low = i - 1;
+		high = i;
+		while (low >= 0 && high < len && word[low] == word[high]) {
+			if (high - low > max) {
+				start = low;
+				max = high - low - 1;
+			}
+		}
+	}
 
-string sortInfiniteStream(string a) {
+	for (int i = 1; i < len; ++i) {
+		low = i - 1;
+		high = i + 1;
+		while (low >= 0 && high < len && word[low] == word[high]) {
+			if (high - low > max) {
+				start = low;
+				max = high - low - 1;
+			}
+		}
+	}
 	return 0;
-}
+}*/
+
 
 int main() {
 	//int value = stringToInteger("-100232");

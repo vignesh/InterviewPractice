@@ -1,0 +1,11 @@
+#include <iostream>
+using namespace std;
+
+//BFS
+//DFS
+//Dijkstras 
+//Prims
+//Kruskals
+//find k closest points to x
+//greedy scheduling 
+//polish calculator

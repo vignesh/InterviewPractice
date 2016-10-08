@@ -11,6 +11,19 @@ int allFactors(int number) {
 }
 
 int primeFactors(int number) {
+	while (number%2 == 0) {
+		cout << 2 << endl;
+		number = number/2;
+	}
+	for (int i = 3; i < number/i; i = i + 2) {
+		while (number%i == 0) {
+			cout << number << ":" << i << " ";
+			number = number/i;
+		}
+	}
+	if (number > 2) {
+		cout << number << " ";
+	}
 	return 0;
 } 
 
@@ -27,5 +40,6 @@ int findMedian () {
 }//find median given two arrays
 
 int main() {
-	allFactors(30);
+	//allFactors(30);
+	primeFactors(315);
 }
