@@ -5,6 +5,7 @@ class LinkedList {
 
 	struct Node {
 		Node *next; 
+		Node *child;
 		int data;
 	};	
 
@@ -106,6 +107,26 @@ public:
 		head = head->next;
 		delete temp;
 	}
+
+	void flattenList (Node *head) {
+		Node *temp;
+		Node *tail = head;
+		Node *current = head;
+		while (tail != NULL) {
+			tail = tail->next;
+		}
+		while (current != tail) {
+			if (current->child) {
+				tail->next = current->child;
+				temp = current->child;
+			}
+			while (temp) {
+				temp = temp->next;
+			}
+			tail = temp;
+		}
+		current = current->next;
+	}//need to build test case for this
 
 };
 
