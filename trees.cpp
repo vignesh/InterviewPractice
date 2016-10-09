@@ -161,6 +161,17 @@ Node* lowestCommonAncestorBST(Node *root, int value1, int value2) {
 	return root;
 }
 
+Node* mirror(Node *root) {
+	if (root == NULL) {
+		return 0;
+	}
+	Node *newNode = new Node;
+	newNode->data = root->data;
+	newNode->left = mirror(root->left);
+	newNode->right = mirror(root->right);
+	return root;
+}
+
 int pathSum() {
 
 }
