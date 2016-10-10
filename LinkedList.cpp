@@ -120,7 +120,7 @@ public:
 				tail->next = current->child;
 				temp = current->child;
 			}
-			while (temp) {
+			while (temp ) {
 				temp = temp->next;
 			}
 			tail = temp;
