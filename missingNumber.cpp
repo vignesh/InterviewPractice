@@ -21,7 +21,7 @@ int missingNum(int *a,int n)
 
 int main()
 {
-    int a[]={1,2,3,7,4,5,6,9,11,8,13,10};
+    int a[]={1,2,3,7,4,5,6,9,10,11,13};
     int n=sizeof(a)/sizeof(a[0]);
     missingNum(a,n);
     return 0;

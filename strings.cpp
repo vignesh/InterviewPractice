@@ -13,6 +13,20 @@ int reverseString(string a) {
 	return 0;
 }
 
+string reverseInPlace(string a)
+{
+    int length = a.length();
+    int temp, i, j;
+
+    for (i = 0, j = length - 1; i < j; i++, j--)
+    {
+        temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+    return a;
+}
+
 string reverseWords(string sentence) {
 	return 0;
 }
@@ -102,7 +116,9 @@ bool isomorphicStrings(string a, string b) {
 int main() {
 	//int value = stringToInteger("-100232");
 	//cout << value << endl;
-	int isoValue = isomorphicStrings("abab", "xyxy");
-	cout << isoValue << endl;
+	//int isoValue = isomorphicStrings("abab", "xyxy");
+	//cout << isoValue << endl;
+	string a = reverseInPlace("abcdefg");
+	cout << a << endl;
 	//reverseString("abcdefg");
 }
