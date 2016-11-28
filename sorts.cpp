@@ -25,24 +25,43 @@ int selectionSort(int data[], int len) {
 	return *data;
 }//O(n^2), in place algorithm, unstable
 
-int quickSort(int data[], int len) {
-	int pivotIndex = len/2;
-	int pivotValue = data[pivotIndex];
-	int leftCounter = 0;
-	for (int i = 0; i < len; i++) {
-		if (data[i] < pivotValue) {
-			leftCounter++;
+void quicksort(int data[], int left, int right) {
+	int i = left;
+	int j = right;
+	int temp;
+	int pivot = data[(i+j)/2];
+	while (i <= j) {
+		while (i < pivot) {
+			i++;
+		}
+		while (j > pivot) {
+			j--;
+		}
+		if (i <= j) {
+			temp = data[i];
+			data[i] = data[j];
+			data[j] = temp;
+			i++;
+			j--;
+		}
+		if (left < j) {
+			quicksort(data, left, j);
+		}
+		if (i < right) {
+			quicksort(data, i, right);
 		}
 	}
-	//int [] leftArray = new int[leftCounter];
-	//int [] rightArray = new int[len-1-leftCounter];
-}//O(nlogn), unstable
-
+	//for (int k = 0; k < 4; k++) {
+	//	cout << data[k] << " ";
+	//}
+}
+//O(nlogn), unstable, worst case O(n^2)
 
 int main () {
 	int data [5] = {10, 20, 30, 5, 3}; 
-	int val =selectionSort(data, 5);	
-	cout << val;
+	quicksort(data, 0, 4);
+	//int val =selectionSort(data, 5);	
+	//cout << val;
 }
 
 //mergesort
