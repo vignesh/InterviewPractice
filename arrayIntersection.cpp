@@ -23,4 +23,5 @@ int main () {
 	int data [5] = {1, 2, 3, 4, 5}; 
 	int data2 [5] = {3, 4, 5, 6, 7}; 
 	intersectionSortedArrays(data, data2);
+    
 }

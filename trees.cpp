@@ -56,14 +56,48 @@ int levelOrder (Node *root) {
     while (!q.empty()) {
         Node *temp =q.front();
         cout << temp->data << " ";
+        q.pop();
         if(temp->left != NULL) {
             q.push(temp->left);
         }
         if(temp->right != NULL) {
             q.push(temp->right);
         }
-        q.pop();
     }
+}
+
+int height(Node *root) {
+	if (root == NULL) {
+		return 0;
+	}
+	int lheight = height(root->left);
+	int rheight = height(root->right);
+	if (rheight > lheight) {
+		return(rheight+1);
+	}
+	else {
+		return (lheight+1);
+	}
+}
+
+int printLevel(Node * root, int level) {
+	if (root == NULL) {
+		return 0;
+	}
+	if (level == 1) {
+		printf("%d ", root->data);
+	}
+	else if (level > 1) {
+		printLevel(root->left, level -1);
+		printLevel(root->right, level -1);
+	}
+}
+
+int levelOrder2(Node *root) {
+	int h =  height(root);
+	for (int i = 1; i <= h; i++) {
+		printLevel(root, i);
+	}
 }
 
 Node* insertBST(Node *root, int value) {
@@ -207,7 +241,10 @@ int main()
     root->right       = newNode(3);
     root->left->left  = newNode(4);
     root->left->right = newNode(5);
-    levelOrder(root);
+    //levelOrder(root);
+    //levelOrder2(root);
+    //height(root);
+    topView(root);
     //cout << treeDepth(root) << endl;
     //cout << fullBinaryTree(root) << endl;
     //postOrder(root);

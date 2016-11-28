@@ -97,7 +97,7 @@ public:
 		if (head != NULL) {
 			Node *temp = head->next;
 			reversePrint(temp);
-			cout << head->data << endl;
+			cout << head->data << " ";
 		}
 	}
 
@@ -144,8 +144,8 @@ int main() {
     list.findMiddleNode(list.head);
     list.addLastNode(7);
     list.inOrderPrint(list.head);
-    list.reverseList(list.head);
-    list.reversePrint(list.head);
+    //list.reverseList(list.head);
+    //list.reversePrint(list.head);
 
     return 0;
 }
