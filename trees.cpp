@@ -1,5 +1,6 @@
 #include <iostream>
 #include <queue>
+#include <stack>
 using namespace std;
  
 struct Node
@@ -206,6 +207,38 @@ Node* mirror(Node *root) {
 	return root;
 }
 
+void zigzag (Node * root) { //spiral
+	stack <Node*> s;
+	stack <Node*> s2;
+	if (root != NULL) {
+		s.push(root);
+	}
+	while (!s.empty() || !s2.empty()) {
+		while(!s.empty()) {
+			Node *temp =  s.top();
+			s.pop();
+			cout << temp->data << " ";
+			if (temp->right) {
+				s2.push(temp->right);
+			}
+			if (temp->left) {
+				s2.push(temp->left);
+			}
+		}
+		while(!s2.empty()) {
+			Node *temp =  s2.top();
+			s2.pop();
+			cout << temp->data << " ";
+			if (temp->left) {
+				s.push(temp->left);
+			}
+			if (temp->right) {
+				s.push(temp->right);
+			}
+		}
+	}
+}
+
 int pathSum() {
 
 }
@@ -239,12 +272,19 @@ int main()
     Node *root        = newNode(1);
     root->left        = newNode(2);
     root->right       = newNode(3);
+    root->left->left  = newNode(7);
+    root->left->right = newNode(6);
+    root->right->left  = newNode(5);
+    root->right->right = newNode(4);
+    /*root->left        = newNode(2);
+    root->right       = newNode(3);
     root->left->left  = newNode(4);
-    root->left->right = newNode(5);
+    root->left->right = newNode(5);*/
     //levelOrder(root);
     //levelOrder2(root);
     //height(root);
-    topView(root);
+    //topView(root);
+    zigzag(root);
     //cout << treeDepth(root) << endl;
     //cout << fullBinaryTree(root) << endl;
     //postOrder(root);
