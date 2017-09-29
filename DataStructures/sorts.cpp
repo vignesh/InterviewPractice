@@ -107,17 +107,16 @@ void mergesort(int *a, int low, int high)
         merge(a,low,high,mid);
     }
     return;
-}
+}//O(nlogn)
 
 int main () {
 	int data [5] = {10, 20, 30, 5, 3}; 
-	quicksort(data, 0, 4);
+	//quicksort(data, 0, 4);
 	//int val =selectionSort(data, 5);	
 	//cout << val;
 }
 
-//mergesort
-//quicksort
+//heap sort
 //selectionsort 
 //insertionsort
 //bucketsort 
