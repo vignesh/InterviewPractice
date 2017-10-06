@@ -3,12 +3,11 @@
 //Worst case time O(n^2)
 //In place sorting, does not need extra space
 
-void quickSort(int arr[], int low, int high) {
-	if (low < high) {
-		int pivot = partition(arr, low, high);
-		quickSort(arr, low, pivot-1);
-		quickSort(arr, pivot+1, high);
-	}
+
+int swap(int* a, int* b) {
+	int* tmp = a;
+	int* a = *b;
+	int* b = tmp;
 }
 
 int parition(int arr[], int low, int high) {
@@ -24,8 +23,10 @@ int parition(int arr[], int low, int high) {
 	return i + 1;
 }
 
-int swap(int* a, int* b) {
-	int* tmp = a;
-	int* a = *b;
-	int* b = tmp;
+void quickSort(int arr[], int low, int high) {
+	if (low < high) {
+		int pivot = partition(arr, low, high);
+		quickSort(arr, low, pivot-1);
+		quickSort(arr, pivot+1, high);
+	}
 }
