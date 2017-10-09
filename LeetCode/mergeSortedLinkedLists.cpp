@@ -7,7 +7,7 @@ Node  *mergeSortedLinkLists(Node *a, Node*b) {
 		return a;
 	}
 
-	if (a->data > b->data) {
+	if (a->data <= b->data) {
 		result = a;
 		return mergeSortedLinkedList(a->next, b);
 	}
