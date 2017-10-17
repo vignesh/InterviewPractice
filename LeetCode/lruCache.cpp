@@ -43,8 +43,8 @@ class DLL {
             tail->next = NULL;
         }
         else {
-            node->next->prev = node->next;
-            node->prev->next = node->prev;
+            node->next->prev = node->prev;
+            node->prev->next = node->next;
         }
         node->next = head;
         //can set node->prev to null, because we know its at the top/front of the queue
