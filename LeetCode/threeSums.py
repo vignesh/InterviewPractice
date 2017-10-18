@@ -1,3 +1,4 @@
+#O(n^2) time
 class Solution(object):
     def threeSum(self, nums):
         """
@@ -23,4 +24,4 @@ class Solution(object):
                     left+=1
                 else:
                     right-=1
-        return final
+        return threeSums
