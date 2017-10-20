@@ -38,3 +38,19 @@ class Solution(object):
                 l+=1
             else:
                 r-=1
+
+#ONlt good solution for sorted array, binary search
+def twoSum(self, numbers, target):
+    for i in range(len(numbers)-1):
+        l = i+1
+        r = len(numbers)-1
+        complement = target - numbers[i]
+        while l <= r:
+            middle = l + (r-l) // 2
+            if numbers[middle] == complement:
+                #adding one to index, because anser requires not zero indexed
+                return [i+1, middle+1]
+            elif numbers[middle] < complement:
+                l = middle+1
+            else:
+                r = middle-1
