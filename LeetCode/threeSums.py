@@ -25,3 +25,25 @@ class Solution(object):
                 else:
                     right-=1
         return threeSums
+
+#Method with hashmap
+class Solution(object):
+    def threeSum(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        target  = 0
+        nums.sort()
+        finalArray = set()
+        for i in range(len(nums)-2):
+            current = nums[i]
+            mapping = {}
+            counter = 0
+            for number in nums:
+                complement = target - number - current
+                if complement in mapping:
+                    finalArray.add([current, complement, number])
+                mapping[number] = counter
+                counter+=1
+        return finalArray
