@@ -1,0 +1,40 @@
+Concurrency - Mulitthread Programming
+
+Asynchronous - Start next task before current task is finished 
+Synchronous - Need to wait for a task to be finished before starting next task
+
+Javascript is asynchnous, and can lead to issues of data being accessed of differnt part of application.
+
+Thread - Fundemental unit of execution, that has its own stack. Threads share resources (file handles) and memory. Drawback of threads is data corruption.
+
+Data Corruption - Two threads simultaneously accessing/writing on same block of memeory
+
+Native Threads/Kernal Threads - Most common type of thread that is managed by operating system
+
+Green threads - Threads implemented in software layer like virtual machine above operating system. Multicore systems have crated a shift awat from green threads.
+
+Preemptive Threading - Operating systm quickly switching between threads, giving a small block of time for a thread to run
+
+Cooperative Model - Allows thread to comlete action adn suspend itself
+
+Context Switch - Suspending one thread for another thread
+
+System Thread - Thread that is created and mainted by system/operating system. 
+
+User Thread - Threads that are created by an application 
+
+Thread Synchronization - Mechanisms like monitors and semaphores that control interactions and allow threads to share resources 
+
+Monitor - Routines protected by mutual exlcusion clock, thread cannot execute until the routine in monitor acuires the clock. Only one thread in the monitor at one. Easier to use than semaphores, because monitos deal with lock acquisiton and release.
+
+Semaphore - Lock that protects a shared resouce. Thread must acquire lock before using shared resource. Difficult to implement, becuase each thread has to release every lock, and will affect the access of other threads accessing resource.
+
+Mutex - Mutal Exclusion is most basic type of semaphore.
+
+Couning Semaphores - Allows maximum of n threads to access resouce at once.
+
+Event Semaphore - Notifies one/all threads that an event has occured.
+
+Deadlock - Two threads waiting for a lock that the other thread holds, leads to permanent stalling. Example is if two processes need two locks A and B. Process 1 acquires A, and Process 2 acquires B..then we are in deadlock. In order to prevent deadlock make sure that locks are acquired in order and released in reverse order.
+
+
