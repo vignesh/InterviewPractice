@@ -1,0 +1,54 @@
+Networking Concepts
+
+Netowrk Layer:
+Physical (Layer 1) - Network at the electrical and mechanical level.
+Data Link (Layer 2) - 
+Network (Layer 3) - 
+Transport (Layer 4) - 
+Session (Layer 5) - 
+Presentation (Layer 6) - 
+Application (Layer 7) - 
+
+TCP - Transmission Control Protocol. TCP covers layer 4 (Transport layer), and layer 5 (session layer)
+
+HTTP - Hypertext Transfer Protocol, enables communciation between clients and servers. Types of HTTP methods are POST, GET, PUT, HEAD, DELETE.
+
+GET - HTTP method to request data. GET method can be cached, should not store sensitive data, can be bookmarked, remain in browser history, have length restrictions. In example below the name, value pairs are part of the GET request.
+/test/demo_form.php?name1=value1&name2=value2
+
+POST - HTTP method to submit/create data. POST method cannot be cached, cannot be stored in browsing history, is safer than GET (cannot see parameters, and not stored in logs), no length restrictions. If POST same object twice than you will have two of the objects.
+POST /test/demo_form.php HTTP/1.1
+Host: w3schools.com
+name1=value1&name2=value2
+
+PUT - HTTP method to update and create data. PUT method. If you PUT same object twice than the second object will override the first object.
+
+DELETE - HTTP method to delete a resoice
+
+
+HTTPS - HTTP with SSL layer
+SSL - Protocal that operates on top of TCP. SSL handshake is started by the client.
+
+HTTP Request - 
+GET /docs/index.html HTTP/1.1
+Host: www.nowhere123.com
+Accept: image/gif, image/jpeg, */*
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)
+(blank line)
+
+HTTP Response - 
+HTTP/1.1 200 OK
+Date: Mon, 27 Jul 2009 12:28:53 GMT
+Server: Apache/2.2.14 (Win32)
+Last-Modified: Wed, 22 Jul 2009 19:15:56 GMT
+Content-Length: 88
+Content-Type: text/html
+Connection: Closed
+
+Sources:
+https://www.w3schools.com/tags/ref_httpmethods.asp
+https://stackoverflow.com/questions/630453/put-vs-post-in-rest
+https://www.webopedia.com/quick_ref/OSI_Layers.asp
+https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/HTTP_Basics.html
