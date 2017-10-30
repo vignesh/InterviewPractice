@@ -1,0 +1,58 @@
+Database Basics
+
+Transaction - Group of relational database manipulations
+
+Rolling back - Any operation fails in a transaction
+
+Commited - Push all changes of transaction
+
+ACID
+Atomicity - Database guarentees all operations withing transaction will succeed or they all fail.
+Consistency - Transaction ensures database is correct from start and end of transaction.
+Isolation - All changes to database within a tranasaction are seperate/isolated from all other transactions/queries until current transaction is commited.
+Durability - Commited changes made in a database are permanent. Database should have recovery mechanism to recover to current state.
+
+Sharding - Partioning a larger database into smaller and faster databases. Negative of sharding is that you lose the power to access all data in one location. Managing multiple servers adds programming and operational comlexity. How data is read, and how data is distributed is important to how sharding is employed. Sharding is good when there is a lot of data.
+
+Redistrubitng Data - Adding new nodes as data is rapidly growing, performance and operational burdern
+
+Vertical Patitioning - Splitting database on column like user, gender, age. Databse now becomes very specific to part of the data.
+
+Horizonal Partioning  - Splitting database based on constraing of a column like age % 10, names by alpahabet.
+
+Shard Key - 
+
+Algorithmic Sharding - Client can detemine patition of databse with simple sharidn function like hash(key) % NUM_DB”. Reads can be done on one node if the key is given, if not queries will search through all nodes. Algorithmic sharding only accouts for sharidng when pationintg data, so does not look into hot spots etc, therefore data that is homogenous/spead out is a good use case. Consistent hashing is a common sharding function.
+
+Dynamic Sharding - External locator service determines location of entries. Locators can create, split, and redistrivute data so it is good for nonunform data.
+
+Consistent Hashing - Create metric space (ring) that has nodes and keys that map ot this. Nodes can get id from hashing function given the IP address, and keys can get an id from hashing a key. Key id will be asccoited with the next node. Consistent hashing is good for load balancing, because all nodes have uniformed amount of keys. There is also good flexibilty when a node is added or removed, because there is not too much rehashing to perform.
+
+Replica - A way to rpevent downtime by having duplicate resouces avaiable. If machine has 10% chance of going down, and we have backup machine the chance of downtime now is only 1%. Problem is having consistency between machine A and B, because if one transaction fails in one database and succeeds in other we will have incosistent data. Solution is have local copy in cooridnator that keeps track previous operation and retries if operation fails. Another solution look at the commit log for each node machine. If operation fails we can look at commit log and revert. 
+
+Key Value Stores - Can scale up maintaining database in RAM while minimizing ACID guarentees, voiding locks, latches and low-overhead server calls. Examples are Cassandra and Redis.
+
+RAM - Main memory in computer also known as random access memeory. Once computer is shut down we ose RAM. 
+
+Cache Hit - When requested data resides within the cash therefore can be server directly from cache.
+
+Cache Miss - When requested data not in cache therefore needs to be recomputer/retreived from original source.
+
+Memcached - Key Value store that is good for storing small snippets of static data like HTML. Memcache is multithreaded, so generally it's easier to scale than Redis. Memcache uses LRU for eveiction policy. 
+
+Redis - Good at storing serialized ata because of good data structure implementation(lists, sets, sorted sets, hyperloglogs, bitmaps, and geospatial indexes). Redis horizonatally scales, and is only single threaded. Redis let's you choose eviction policy.
+
+Eviction Policy - The way to determine what item gets removed form cache when the cache is full. Common evition Policy incldes LRU, LFU, and RR.
+
+RR - Random Replacmenet in where you pick a random element to discared from cache.
+
+LFU - Pick the lease frequenetly used item and discard from cache. Will need to keep a counter for the amount of times an item is used.
+
+LRU - Pick the least recently used item and discard from cache. Can be implemented using doubly linked list in queue format, such that the head will point to most recently used and the tail points to the least recently used.
+
+Soruces:
+http://searchcloudcomputing.techtarget.com/definition/sharding
+https://medium.com/@jeeyoungk/how-sharding-works-b4dec46b3f6
+http://blog.gainlo.co/index.php/2016/05/17/design-a-cache-system/
+https://www.aerospike.com/what-is-a-key-value-store/
+https://www.infoworld.com/article/3063161/nosql/why-redis-beats-memcached-for-caching.html
