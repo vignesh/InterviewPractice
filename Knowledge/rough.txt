@@ -1,0 +1,26 @@
+
+
+#array, number
+
+That many of the smallest elements of the list 
+[1,2,3,4,5,6] 2
+
+def getBiggetsSmallestNumbers(nums, k):
+	nums = sorted(nums)
+	finalAnswer = []
+	finalAnswer.append(nums[:k])
+	finalAnswer.append(nums[-k:])
+	return finalAnswer
+
+#encoding taking one message and then covnerting it 
+#encrypting taking one message and converting it, but needs 
+#hashing taking one message
+
+Encoding taking one message then converting it 
+Hashing has one way access, can not get or convert data from a hash code. Hashing provides data integreity, because ia 
+Encryption has two way access, can decrypt and encrypt data if you have the key with you.
+
+
+#tuples fixed size and are immutable
+#lists are dynamic size are mutable
+As a while tuples are faster than lists, but tuples have limited functionality relative to lists. For example there are no append or pop methods for a tuple, where a lists has a wider ranger of functionality. 
