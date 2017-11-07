@@ -2,9 +2,9 @@
 
 def longestCommonSubstring(string1, string2):
 	result = 0
-	dp = [[0 for x in range(len(string1)+1)] for y in range(len(string2)+1)]
-	for i in range(len(string1)):
-		for j in range(len(string2)):
+	dp = [[0 for x in range(len(string2)+1)] for y in range(len(string1)+1)]
+	for i in range(len(string1)+1):
+		for j in range(len(string2)+1):
 			if i == 0 or j == 0:
 				dp[i][j] == 0
 			elif string1[i-1] == string2[j-1]:
