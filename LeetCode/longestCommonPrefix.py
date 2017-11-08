@@ -11,6 +11,7 @@ def prefixMatch(word1, word2):
 			break
 	return word1[:i-1]
 
+
 #Dvide and Conquer Method, O(MN)
 def longestCommonPrefix(words, low, high):
 	if words[low] == word[high]:
@@ -33,3 +34,37 @@ def prefixMatch(prefix1, prefix2):
 		if prefix1[i] != prefix2[j]:
 			break
 	return prefix1[:i]
+
+#Divide and Conquer Solution iterative O(MN)
+def longestCommonPrefix(words):
+	minString = sort(words,key=len)
+	prefix = ""
+	low = 0
+	high = len(minString)
+	prefix = ""
+
+	while low <= high:
+		mid = (low + high)/2
+
+		if (longestCommonPrefixHelper(words, minString, low, mid)):
+			
+			#update prefix
+			prefix =  prefix + minString[low:mid-low-1]
+			
+			#make windown larger, check right side
+			low = mid + 1
+
+		#make window smaller, check left side
+		else:
+			high = mid -1
+
+	return prefix
+
+def longestCommonPrefixHelper(words, prefix, start, end):
+	for word in words:
+		j = start
+		while j < end:
+				if word[j] != prefix[j]:
+					return False
+			j+=1
+	return True
