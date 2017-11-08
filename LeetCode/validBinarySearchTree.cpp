@@ -26,3 +26,26 @@ public:
         return validBST(root->left, leftNode, root) && validBST(root->right, root, rightNode);
     }
 };
+
+//In order tree traversal
+class Solution {
+public:
+    bool isValidBST(TreeNode* root) {
+        TreeNode *prev = NULL
+        if (root) {
+
+            if (!isValidBST(root->left)) {
+                return false;
+            }
+
+            if(prev && root->val <= prev->val) {
+                return false;
+            }
+
+            prev = root;
+
+            return isValidBST(root->right)
+        }
+        return true
+    }
+};
