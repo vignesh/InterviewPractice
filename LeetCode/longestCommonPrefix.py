@@ -41,7 +41,6 @@ def longestCommonPrefix(words):
 	prefix = ""
 	low = 0
 	high = len(minString)
-	prefix = ""
 
 	while low <= high:
 		mid = (low + high)/2
@@ -68,3 +67,4 @@ def longestCommonPrefixHelper(words, prefix, start, end):
 					return False
 			j+=1
 	return True
+	
