@@ -1,13 +1,40 @@
 Networking Concepts
 
 Netowrk Layer:
-Physical (Layer 1) - Network at the electrical and mechanical level.
-Data Link (Layer 2) - 
-Network (Layer 3) - 
-Transport (Layer 4) - 
-Session (Layer 5) - 
-Presentation (Layer 6) - 
-Application (Layer 7) - 
+Physical (Layer 1) - Network at the electrical and mechanical level. (Hub)
+Data Link (Layer 2) - Error detection,flow control of physical link (Switch, Frames)
+Network (Layer 3) - Network addressing through routing and switching. (IP, rotuers)
+Transport (Layer 4) - End to end error control. (TCP)
+Session (Layer 5) - Authentication, permission, session restoration (Ports)
+Presentation (Layer 6) - Encryption, compresssion deal with binary. (JEPG, PNG)
+Application (Layer 7) - Message format, huma facing interfaces (HTTP)
+
+5 Core Networking Problems that TCP/IP solves
+- Logical Addressing
+- Routing
+- Name Resolution
+- Flow Control
+- Support for external applications
+
+Decentralized Data Netowkring (Internet) - Created from military project ARPAnet, in order to create a system that had no single point failure
+
+MAC (Machine Access Code) - Unique code for every product connected to internet
+
+Routers - Allow us to create subnets in a tree like heirarchy for fast routing
+
+IP - Logical address combined of network, subnet, and host id numbers
+
+Domain Names - User frinedly names system so user does not need to remeber IP address
+
+Name Resolution - Process of mapping logical addresss back and forth with domain stored on name servers
+
+Domain Name Service (DNS) - Provide heirarchy of name servers to handle name resolutions
+
+Ports - Logical channels provided by TCP/IP for multiple applcation support
+
+Netowrk Protocols - set of rules how applications communicate intercommunicate
+
+Common Protocols - HTTP (web), SSH (secure access), SMTP (email), FTP(file transfer)
 
 TCP - Transmission Control Protocol. TCP covers layer 4 (Transport layer), and layer 5 (session layer)
 
@@ -23,7 +50,7 @@ name1=value1&name2=value2
 
 PUT - HTTP method to update and create data. PUT method. If you PUT same object twice than the second object will override the first object.
 
-DELETE - HTTP method to delete a resoice
+DELETE - HTTP method to delete a resource
 
 
 HTTPS - HTTP with SSL layer
