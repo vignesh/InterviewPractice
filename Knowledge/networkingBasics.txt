@@ -52,7 +52,6 @@ PUT - HTTP method to update and create data. PUT method. If you PUT same object 
 
 DELETE - HTTP method to delete a resource
 
-
 HTTPS - HTTP with SSL layer
 SSL - Protocal that operates on top of TCP. SSL handshake is started by the client.
 

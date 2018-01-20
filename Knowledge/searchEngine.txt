@@ -1,0 +1,54 @@
+How to build a search engine?
+
+1. Indexing Infrastructure 
+- First build crawler with list of web addresses/site maps. Crawler for go from link and bring data back to servers.
+- Next we need to organze information by creating indexes. Potentially run a map reduce job to convert website data into index file. The reduction will aggregate all of these index files into one unit.
+
+Example of map reduce job:
+Map() function for "bright yellow stocks" -> (bright:1), (yellow:1), (socks:1)
+Reduce() function 500,000 "helllo" will sum up all (hello,1) and reduce to (hello:500,000)
+These functions can be distrbuted to lot of computers, and if one fails then only have to restart one computer
+
+2. Specifics of Indexing Algorithm (how to compute meaningful results)
+- Count how many in bound links (more the better) -> page rank
+- Check out number of outbound links, take into consideration on how links are presented (h1 tag more important than h3)
+- Inverted indexes algorithm is normally implemented. Inverted index data structure that is mapping words/numbers to a database file/document. Faster full text search at a cost of more memory sapce to store database files.
+
+Two types of inverted index:
+- Record-level inverted index/inverted file index/inverted file contains list of references to documents for each word
+- Word-level inverted index/full inverted indx/inverted list contains positions of each word as with refereces to documents. Requires more space and compute power, but will improve phase search.
+Example: toto 6 [(3,2), (4, 4)]
+Toto appears total of 6 times, 2 times on line 3, and 4 times on line 4.
+
+Create inverted index
+1.Collect docuements to be indexed
+2. Tokenize text in tokens (words)
+3. Normalize tokens (Friends->friends, Romans->roman)
+4. Index documents such that there is a dictionary and postings
+	- Sort by terms, and same terms are merged and then a posting lists is created
+	- Postings are constructed with linked list (better for recrawling), or arrays
+	- Doc Id is unqiue identifier for document
+
+
+3. Serving Results
+- Read data from NoSQL data base
+- Even if index is accurarte it needs to be served fast
+
+
+How to improve SEO?
+
+- Publish relevent content
+- Update content regularaly
+- Metadata in tags like <head>, title, description, keyword
+- Have a link worth site (create relevent links rather than click here buttons)
+- Use alt tags to describer pictures and videos
+- Do not have erros like 404 on page/broken links
+- Encourage repeat traffice, reoccuring users 
+- Fast load times of page
+
+Sources:
+https://www.quora.com/What-is-Map-Reduce
+https://www.google.com/search/howsearchworks/crawling-indexing/
+http://www.mtu.edu/umc/services/digital/seo/
+https://softwareengineering.stackexchange.com/questions/38324/how-would-you-implement-google-search
+https://nlp.stanford.edu/IR-book/html/htmledition/a-first-take-at-building-an-inverted-index-1.html

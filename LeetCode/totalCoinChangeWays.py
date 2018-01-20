@@ -11,3 +11,5 @@ def totalCoinChangeWays(coins, target):
 		for j in range(1,len(target)+1):
 			if j >= coins[i]:
 				dp[i][j] = 1 + dp[i-coins[i]][j]
+				
+	return dp[i][j]

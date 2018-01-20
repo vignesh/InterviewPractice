@@ -12,4 +12,5 @@ What happens when you search an url on a browser?
 10. Browser determines how to interpret response (HTML, Javascript, CSS)
 11. Browser renders response and messages for unrecognized types
 
+
 Source - https://stackoverflow.com/questions/2092527/what-happens-when-you-type-in-a-url-in-browser
