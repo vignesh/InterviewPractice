@@ -1,4 +1,12 @@
-Hadoop Baiscs
+Hadoop Basics
+
+Hadoop is a framework that prcoesses big data on clustered environment.
+- Distributed storage (spread data across nodes)
+- Fault tolerant (one mistake will not take whole system down)
+- Scalability (can store lot of data)
+- High availability (reads are very fast)
+- Data locality (close to actual data)
+- Reliability (lot of copies of data)
 
 Made up of:
  - HDFS (Hadopp distrbuted file system)
