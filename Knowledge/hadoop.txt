@@ -1,0 +1,42 @@
+Hadoop Baiscs
+
+Made up of:
+ - HDFS (Hadopp distrbuted file system)
+ - Map Reduce
+ - YARN (Yet another resource negotiator)
+
+ HDFS (reliable storage layer):
+ - Provides redudant storage for large files
+ - Will alaways have at least three copies of the file across differnt machines
+ - Slow for writing, but fast for reads (write once, read many)
+ - HDFS has two types of nodes master and slave
+ - Master node store file meta data such as locations of slaves, file size, etc
+ - Slave node contain the content of the file
+ - Master will distribute commands such as add/copy/delete etc.. across all slaves
+ - Slave sends heartbeat message every three seconds to inform master of status
+ - If no message received by master for 10 minutes then slave is dead and new one is replicaated
+
+ Map Reduce (processing engine)
+ - Dividing huge amount of data tasks in paralles into set of indendent tasks
+ - Works on structured and unstrucutred data
+ - Phase 1: Map all processing (costly code, business rules, complex logic)
+ - Phase 2: Reduce all the processing (aggregation, summation)
+ - Number of mappers =  data size / split size
+ - Step 1: One block from HDFS is proecessing by mapper. Map runs on all nodes
+ - Step 2: Output of mapper is written on local disk not HDFS (avoid slow write, and extra copies)
+ - Step 3: Output is shuffled to reducer node (normal slave node in reduce phase)
+ - Step 4: Once all mappers are finished with step 3, merge and sort intermediate output
+ - Step 5: Mapper input passed into reduce function and then write to HDFS
+ - Data localaity: move closer to data, but not to move the data (cheaper to move computation of data, than data itself)
+
+ YARN (resource management)
+ - Two main components are scheduler and applications manager
+ - Scheduler API designed to negotiate resources (memory, CPU, dusk, network) not to schedule tasks
+ - Every application has application manager
+ - Every node has a node manager
+
+ Sources:
+ - https://www.quora.com/What-is-Apache-Hadoop-1
+ - https://data-flair.training/blogs/apache-hadoop-hdfs-introduction-tutorial/
+ - https://data-flair.training/blogs/hadoop-mapreduce-flow/
+ - http://data-flair.training/blogs/deep-dive-into-hadoop-yarn-resource-manager/
