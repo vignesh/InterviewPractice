@@ -43,6 +43,13 @@ Made up of:
  - Every application has application manager
  - Every node has a node manager
 
+
+ Storm - process stream of data
+ Spark - process data in small batches
+ Hive - query engine that runs map reduce jobs
+ Hbase - NoSQL database built on top of hbase
+
+
  Sources:
  - https://www.quora.com/What-is-Apache-Hadoop-1
  - https://data-flair.training/blogs/apache-hadoop-hdfs-introduction-tutorial/
